@@ -35,7 +35,7 @@
     "@angular/platform-browser-dynamic": "^13.0.2",
     "@angular/router": "^13.0.2",
     "@angular/service-worker": "^13.0.2",
-    "angular-material-fileupload": "^3.0.2",
+    
     "angular-ng-autocomplete": "^2.0.8",
     "angular-password-strength-meter": "^3.0.1",
     "angularx-social-login": "^4.0.1",
