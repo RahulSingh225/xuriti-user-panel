@@ -1,0 +1,27 @@
+<div id="companylist-page">
+  <div class="flex-container">
+    <div class="flex-item-left bg-white">
+      <div class="margin-top margin-bottom">
+        <div class="loginform">
+          <div class="tableheader w-100">
+            <div class="w-80 text-left"><h2 i18n="@@CL1">Companies</h2></div>
+          </div>
+          <div class="cardrow">
+            <mat-card class="cardflex" *ngFor="let company of companyDetails">
+              <div (click)="selectCompany(company)">
+                <mat-card-header>
+                  <mat-card-title i18n="@@CL3">
+                    {{ company.company_name }}
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-footer>
+                  <p i18n="@@CL6">GST: {{ company.gstin }}</p>
+                </mat-card-footer>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

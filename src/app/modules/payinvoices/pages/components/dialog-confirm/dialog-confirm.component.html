@@ -1,0 +1,14 @@
+<div id="dialogconfirm-page">
+  <h1 mat-dialog-title>Invoice Status Confirmation</h1>
+  <div mat-dialog-content>
+    <p>
+      <strong></strong> Do you confirm?
+    </p>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial color="primary" (click)="confirm()">
+      CONFIRM
+    </button>
+    <button mat-button color="warn" (click)="cancel()">CANCEL</button>
+  </div>
+</div>

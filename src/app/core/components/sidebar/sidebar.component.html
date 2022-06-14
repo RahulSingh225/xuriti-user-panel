@@ -1,0 +1,97 @@
+<div
+  class="sidenav_container"
+  [@onSideNavChange]="sideNavState ? 'open' : 'close'"
+>
+  <div style="height: 100%">
+    <div class="logo-link">
+      <a>
+        <img
+          class="logo"
+          src="../../../../assets/images/logo-white.png"
+          alt="Logo"
+        />
+      </a>
+    </div>
+    <div class="userbox">
+      <div class="userprofile">
+        <!-- <img src="../../../../assets/images/usericon.png" alt="usericon" /> -->
+        <div class="userinfo">
+          <p>Welcome!</p>
+          <h2>{{ username }}</h2>
+        </div>
+      </div>
+      <div class="usermenu">
+        <mat-nav-list class="cname">
+          <mat-list-item
+            (click)="openCompaniesPage()"
+            class="mtcon"
+            routerLinkActive="active"
+          >
+            <a matLine> {{ companyName }} </a>
+            <mat-icon>repeat</mat-icon>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </div>
+
+    <div class="matsidemenu">
+      <mat-nav-list *ngIf="!accessFlag">
+        <!-- <mat-list-item [routerLinkActive]="['active']" [routerLink]="['/companies/']">
+          <a matLine>Companies</a>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item> -->
+        <mat-list-item
+          (click)="openInvoicePage('sales')"
+          routerLinkActive="active"
+        >
+          <a matLine>Invoices</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLinkActive="active" (click)="openUserPage()">
+          <a matLine>User Management</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item
+          routerLinkActive="active"
+          (click)="openBankAccountPage()"
+        >
+          <a matLine>Bank Accounts</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <mat-list-item
+          routerLinkActive="active"
+          (click)="openTransactionPage()"
+        >
+          <a matLine>Payment History</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLinkActive="active" (click)="openCreditPage()">
+          <a matLine>Company Evaluation</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item
+          routerLinkActive="active"
+          [routerLink]="['/register/entity']"
+        >
+          <a matLine>Add New Company</a>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </div>
+
+  <div class="matsidemenu bottommatlist" *ngIf="accessFlag">
+    <mat-nav-list>
+      <mat-list-item
+        routerLinkActive="active"
+        [routerLink]="['/register/entity']"
+      >
+        <a matLine>Add New Company</a>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+</div>

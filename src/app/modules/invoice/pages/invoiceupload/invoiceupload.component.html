@@ -1,0 +1,52 @@
+<div id="invoiceupload-page">
+  <div class="flex-container">
+    <div class="flex-item-left bg-white">
+      <div class="margin-top margin-bottom">
+        <div class="loginform">
+          <div class="tableheader w-100">
+            <div class="w-20 text-left"><h2 i18n="@@BA1">Attachments</h2></div>
+          </div>
+          <div class="w-100 multifile">
+            <input
+              mat-raised-button
+              color="primary"
+              type="file"
+              accept=".pdf, image/png, image/jpeg"
+              multiple
+              [fileUploadInputFor]="invoices"
+            />
+            <br />
+            <div id="drop_zone" [fileUploadInputFor]="invoices">
+              <strong>Drag one or more files to this Drop Zone ...</strong>
+            </div>
+            <br />
+            <mat-file-upload-queue
+              #invoices
+              [fileAlias]="'invoice'"
+              [httpUrl]="'https://dev.xuriti.app/api/invoice/upload-invoice'"
+            >
+              <mat-file-upload
+                [file]="file"
+                [id]="i"
+                *ngFor="let file of invoices.files; let i = index"
+                (onUpload)="uploadEvent($event)"
+                [httpUrl]="'https://dev.xuriti.app/api/invoice/upload-invoice'"
+              ></mat-file-upload>
+            </mat-file-upload-queue>
+            <div class="w-100 row">
+              <button
+                mat-button
+                color="primary"
+                class="btn-primary"
+                i18n="@@ABA12"
+                onclick="history.go(-1)"
+              >
+                Go Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
